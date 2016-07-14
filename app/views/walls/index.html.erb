@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<% if @user_walls.count==0 %>
+  congratulations on creating a walls profile! Please select the wall(s) you would like to join.
+  
+  <% @walls.each do |wall| %>
+    <%= wall.title %>
+    <%= render "join_form", wall: wall if user_signed_in? %>
+  <% end %>
+
+
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @walls.each do |wall| %>
+        <tr>
+          <td><%= wall.title %></td>
+          <td><%= wall.description %></td>
+              <%= render "join_form", wall: wall if user_signed_in? %>
+
+          <td><%= link_to 'Show', wall %></td>
+          <td><%= link_to 'Edit', edit_wall_path(wall) %></td>
+          <td><%= link_to 'Destroy', wall, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+
+<br>
+
+<%= link_to 'New Wall', new_wall_path %>
