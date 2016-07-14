@@ -1,35 +1,41 @@
-<h2>Sign up</h2>
+<h2 class="center">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
+    <i class="material-icons prefix">email</i>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
   
     <div class="field">
+    <i class="material-icons prefix">perm_identity</i>
     <%= f.label :username %><br />
     <%= f.email_field :username, autofocus: true %>
   </div>
   
     <div class="field">
+    <i class="material-icons prefix">info</i>
     <%= f.label :firstname %><br />
     <%= f.email_field :firstname, autofocus: true %>
   </div>
   
     <div class="field">
+    <i class="material-icons prefix">info</i>
     <%= f.label :lastname %><br />
     <%= f.email_field :lastname, autofocus: true %>
   </div>
   
     <div class="field">
+    <i class="material-icons prefix">perm_contact_calendar</i>
     <%= f.label :birthday %><br />
     <%= f.email_field :birthday, autofocus: true %>
   </div>
   
 
   <div class="field">
+    <i class="material-icons prefix">lock</i>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -38,6 +44,7 @@
   </div>
 
   <div class="field">
+    <i class="material-icons prefix">lock</i>
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
@@ -46,5 +53,6 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
+<p class="little">
 <%= render "devise/shared/links" %>
+<p>

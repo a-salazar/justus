@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   get 'pages/about'
   get 'pages/home'
+  get 'pages/resources'
+  get 'pages/samplewall'
 
   devise_for :users
   resources :users
