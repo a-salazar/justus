@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160713192443) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -237,6 +238,9 @@ ActiveRecord::Schema.define(version: 20160713192443) do
   end
 
   add_index "thredded_user_topic_read_states", ["user_id", "postable_id"], name: "thredded_user_topic_read_states_user_postable", unique: true
+=======
+ActiveRecord::Schema.define(version: 20160712021756) do
+>>>>>>> f9f906f5c8009f3ec8442fcaf4825afbc6c5b8e3
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -259,5 +263,22 @@ ActiveRecord::Schema.define(version: 20160713192443) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "wall_memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "wall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "wall_memberships", ["user_id"], name: "index_wall_memberships_on_user_id"
+  add_index "wall_memberships", ["wall_id"], name: "index_wall_memberships_on_wall_id"
+
+  create_table "walls", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end

@@ -1,0 +1,7 @@
+    <div id="join_form">
+    <% if current_user.member? (wall) %>
+        <%= render 'leave', wall: wall %>
+    <% else %>
+        <%= render 'join', wall: wall%>
+    <% end %>
+</div>

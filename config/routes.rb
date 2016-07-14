@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+
+  #get 'registrations/after_sign_up'
+
+  resources :walls
   root 'pages#home'
   
   get 'pages/about'
@@ -6,11 +11,15 @@ Rails.application.routes.draw do
   get 'pages/resources'
   get 'pages/samplewall'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :users
   
+
   #this rourtes the forum to the thredded gemfile
   mount Thredded::Engine => '/forum'
+
+  resources :wall_memberships, only: [:create, :destroy]
+
   
 
   
