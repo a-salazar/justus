@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   
+  #this rourtes the forum to the thredded gemfile
+  mount Thredded::Engine => '/forum'
+  
 
   
   # The priority is based upon order of creation: first created -> highest priority.
