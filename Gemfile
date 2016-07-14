@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#this is the forum 
+gem 'thredded', '~> 0.6.1'
+
 gem 'bootstrap-sass', '3.3.6'
 
 gem 'devise'
