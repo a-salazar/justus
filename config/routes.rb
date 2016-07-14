@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+
+
+  #get 'registrations/after_sign_up'
+
+  resources :walls
   root 'pages#home'
   
   get 'pages/about'
   get 'pages/home'
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :users
+  
+  resources :wall_memberships, only: [:create, :destroy]
   
 
   

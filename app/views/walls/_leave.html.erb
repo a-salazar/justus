@@ -1,0 +1,5 @@
+<%= form_for(current_user.wall_memberships.find_by(wall_id: wall.id),
+    html: { method: :delete }) do |f| %>
+    
+    <%= f.submit "Leave", class: "btn" %>
+<% end %>
