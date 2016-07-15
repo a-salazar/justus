@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
 
-
-  #get 'registrations/after_sign_up'
-
   resources :walls
-  root 'pages#home'
-  
+
   get 'pages/about'
   get 'pages/home'
   get 'pages/resources'
   get 'pages/samplewall'
 
-  devise_for :users, controllers: { registrations: "registrations" }
-  resources :users
   
   resources :wall_memberships, only: [:create, :destroy]
+  
+  devise_for :users, controllers: { registrations: "registrations" }
+
+  devise_scope :user do
+    authenticated :user do
+      root to: "pages#home", as: :authenticated_root, via: :get
+    end
+    
+    unauthenticated do
+      root to: "devise/sessions#new"
+    end
+  end
+
+  resources :users
+
   
 
   
