@@ -13,4 +13,5 @@
  <%= render "join_form", wall: @wall if user_signed_in? %>
 
 <%= link_to 'Edit', edit_wall_path(@wall) %> |
-<%= link_to 'Back', walls_path %>
+<%= link_to 'Back', walls_path %> |
+<%= link_to 'forum',@forum%>

@@ -3,11 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-<<<<<<< HEAD
-  def admin
-    has_attribute?(:admin)
-  end
-=======
   has_many :wall_memberships
   has_many :walls, through: :wall_memberships
   
@@ -15,5 +10,13 @@ class User < ActiveRecord::Base
     self.walls.include?(wall)
   end
   
->>>>>>> f9f906f5c8009f3ec8442fcaf4825afbc6c5b8e3
+  def to_s
+      email
+  end
+  
+  def admin
+    #has_attribute?(:admin)
+    return email == 'cmidenyo@outlook.com'
+  end
+  
 end

@@ -1,4 +1,5 @@
 class WallsController < ApplicationController
+  require "pathname"
   before_action :set_wall, only: [:show, :edit, :update, :destroy]
 
   # GET /walls
@@ -11,6 +12,7 @@ class WallsController < ApplicationController
   # GET /walls/1
   # GET /walls/1.json
   def show
+    @forum = "/forum/#{@wall.title.downcase}"
   end
 
   # GET /walls/new
@@ -61,6 +63,7 @@ class WallsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -72,4 +75,8 @@ class WallsController < ApplicationController
     def wall_params
       params.require(:wall).permit(:title, :description)
     end
+    
+      
+      
+        
 end

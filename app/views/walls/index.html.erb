@@ -29,6 +29,7 @@
           <td><%= link_to 'Show', wall %></td>
           <td><%= link_to 'Edit', edit_wall_path(wall) %></td>
           <td><%= link_to 'Destroy', wall, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'forum', forum_path(:name) %></td>
         </tr>
       <% end %>
     </tbody>

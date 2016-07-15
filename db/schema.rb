@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160713192443) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -238,9 +237,6 @@ ActiveRecord::Schema.define(version: 20160713192443) do
   end
 
   add_index "thredded_user_topic_read_states", ["user_id", "postable_id"], name: "thredded_user_topic_read_states_user_postable", unique: true
-=======
-ActiveRecord::Schema.define(version: 20160712021756) do
->>>>>>> f9f906f5c8009f3ec8442fcaf4825afbc6c5b8e3
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false

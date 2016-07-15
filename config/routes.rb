@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users
   
-
+get '/forum/[:messageboard_id]', to: 'thredded/topics#show', as: 'forum'
   #this rourtes the forum to the thredded gemfile
   mount Thredded::Engine => '/forum'
 
